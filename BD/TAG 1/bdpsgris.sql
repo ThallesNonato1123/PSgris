@@ -22,7 +22,9 @@ CREATE TABLE tag(
     id INT AUTO_INCREMENT NOT NULL,
     prazo DATE NOT NULL,
     nome VARCHAR(80) NOT NULL,
-    PRIMARY KEY(id)
+    representante INT NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(representante) REFERENCES `representante gris`(dre)
 );
 
 CREATE TABLE candidato_tag(
