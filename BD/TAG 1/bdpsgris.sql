@@ -14,7 +14,6 @@ CREATE TABLE candidato(
 CREATE TABLE `representante gris`(
     dre INT NOT NULL, 
     nome VARCHAR(80) NOT NULL,
-    materia VARCHAR(80),
     PRIMARY KEY(dre)
 ); 
 
@@ -35,4 +34,20 @@ CREATE TABLE candidato_tag(
     PRIMARY KEY(id),
     FOREIGN KEY(candidato) REFERENCES candidato(dre),
     FOREIGN KEY(tag) REFERENCES tag(id)
+);
+
+CREATE TABLE materia(
+    nome VARCHAR(80) NOT NULL,
+    professor INT NOT NULL,
+    PRIMARY KEY(nome),
+    FOREIGN KEY(professor) REFERENCES `representante gris`(dre)
+);
+
+CREATE TABLE candidato_materia(
+ 	id INT AUTO_INCREMENT NOT NULL,
+    candidato INT NOT NULL,
+    materia VARCHAR(80) NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(candidato) REFERENCES candidato(dre),
+    FOREIGN KEY(materia) REFERENCES materia(nome)
 );

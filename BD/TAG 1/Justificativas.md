@@ -19,14 +19,13 @@ Telegram | Serve para comunicação durante o treinamento, aonde são enviados o
 Nota do questionário| Serve para ter uma classificação previa do nível do candidato
 
 ## Representante do GRIS:
-### Além do candidato, os representantes do GRIS também são essênciais para o processo seletivo. São eles que passam as Tag's e orientam os candidatos, tanto ministrando aulas como respondendo duvidas. O Database deve guardar quem esta responsável por cada disciplina no processo seletivo
+### Além do candidato, os representantes do GRIS também são essênciais para o processo seletivo. São eles que passam as Tag's e orientam os candidatos, tanto ministrando aulas como respondendo duvidas. 
 
 ### Atributos:
 | Atributo | Justificativa
 ---------- | -------------
 DRE (Primary Key) | Serve como identificador **único** dos representantes.
 Nome | Serve para identificar o representante.
-Matéria | Serve para saber qual disciplina cada representante ministra.
 
 ## Tag:
 ### As tag's são os trabalhos que os representantes dos GRIS passam para os candidatos do processo seletivo . Sua importância no banco de dados se da pelo fato de que precisamos mensurar o comprometimento do candidato com o grupo de extensão, para isso vemos se o candidato entregou sua tag na data prevista, e também se produziu um bom trabalho.
@@ -46,7 +45,30 @@ Representante (Foreign Key)| Serve para saber quem criou a tag.
 ### Atributos:
 | Atributo | Justificativa
 ---------- | -------------
-Id (Primary Key) | Serve como identificador **único** das tag's.
+Id (Primary Key) | Serve como identificador **único** da tabela.
 Candidato (Foreign Key)| Identifica qual candidato será relacionado a tag.
 Tag (Foreign Key)| Identifica qual tag esta relacionado com cada candidato.
 Data de Entrega| Informa qual data o candidato entregou a tag.
+
+## Materia:
+
+### A matéria são as aulas que os representantes do GRIS ministram. Sua importância no banco de dados se da pelo fato que o Database deve guardar quem esta responsável por cada disciplina no processo seletivo.
+
+### Atributos:
+| Atributo | Justificativa
+---------- | -------------
+Nome (Primary Key) | O nome da aula serve como identificador das matérias.
+Professor (Foreign Key)| Identifica qual representante do GRIS será relacionado a matéria, em outras palavras, quem ministra cada aula.
+
+## Candidato_materia:
+
+### A tabela candidato_materia é uma tabela de agregação, a qual relaciona as entidades "candidato" e "materia". Desta forma, informando quais materias estão relacionadas aos respectivos candidatos, e , vice-versa. 
+
+### Atributos:
+| Atributo | Justificativa
+---------- | -------------
+Id (Primary Key) | Serve como identificador **único** da tabela.
+Candidato (Foreign Key)| Identifica qual candidato será relacionado a matéria.
+materia (Foreign Key)| Identifica qual matéria esta relacionado com cada candidato.
+
+
