@@ -36,7 +36,7 @@ Nome | Serve para identificar o representante.
 Id (Primary Key) | Serve como identificador **único** das tag's.
 Prazo | Serve para estipular uma data para a entrega da tag.
 Nome | Serve para identificar o assunto da tag.
-Representante (Foreign Key)| Serve para saber quem criou a tag.
+Materia (Foreign Key)| Serve para saber de qual matéria é a tag.
 
 ## Candidato_tag:
 
